@@ -45,24 +45,50 @@
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
-
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
+			    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="/" class="home-link">{{ metadata.title }}</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <h2 class="visually-hidden">Top level navigation menu</h2>
+                <div class="navbar-nav">
 				<ul class="nav">
 				{%- for entry in collections.all | eleventyNavigation %}
 					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
 				{%- endfor %}
 				</ul>
-			</nav>
+                </div>
+            </div>
+        </div>
+    </nav>
 		</header>
+		
+
 
 		<main id="skip">
 			{{ content | safe }}
 		</main>
 
-		<footer></footer>
+		<footer class="mt-auto" style="background-color: #082840a3; color: #ffffff">
+			<!-- follow us on social media -->
+			<div class="container-fluid mt-3 social-media">
+				<div class="row">
+					<div class="col text-center">
+						<p>&copy;Hashim Aslam 2023</p>
+					</div>
+				</div>
+			</div>
+		</footer>
 
 		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
 
